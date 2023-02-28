@@ -12,7 +12,7 @@ const MenuItem = (props: MenuItemProps) => {
   const renderLinkBody = () => {
     return (
       <div
-        className={`flex flex-col justify-center items-center w-20 h-20 text-gray-600 ${props.className}`}
+        className={`flex flex-col justify-center items-center w-20 h-20 text-gray-600  dark:text-gray-200 ${props.className}`}
       >
         <span>{props.icone}</span>
         <span className="text-xs font-light">{props.texto}</span>
@@ -21,7 +21,10 @@ const MenuItem = (props: MenuItemProps) => {
   }
 
   return (
-    <li className="hover:bg-gray-100 cursor-pointer" onClick={props.onClick}>
+    <li
+      className="hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-800"
+      onClick={props.onClick}
+    >
       {props.url ? (
         <Link href={props.url}>{renderLinkBody()}</Link>
       ) : (
