@@ -2,8 +2,11 @@ import { useState } from 'react'
 
 import AuthInput from '../components/auth/AuthInput'
 import { WarningIcon } from '../components/icons'
+import useAuth from '../data/hook/useAuth'
 
 const authentication = () => {
+  const { user, loginGoogle } = useAuth()
+
   const [error, setError] = useState('')
   const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [email, setEmail] = useState('')
@@ -72,7 +75,7 @@ const authentication = () => {
         <button
           className="w-full bg-red-500 hover:bg-red-400 text-white 
         rounded-lg px-5 py-3"
-          onClick={submit}
+          onClick={loginGoogle}
         >
           Enter with Google
         </button>
@@ -90,7 +93,7 @@ const authentication = () => {
           </p>
         ) : (
           <p className="mt-8">
-            Already member of our community?
+            Are Already member of our community?
             <a
               className="text-blue-500 hover:text-blue:700 font-semibold cursor-pointer"
               onClick={() => setMode('login')}
