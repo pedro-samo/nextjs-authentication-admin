@@ -1,4 +1,5 @@
 import useAuth from '@/src/data/hook/useAuth'
+import Image from 'next/image'
 import Link from 'next/link'
 import { AvatarIcon } from '../icons'
 
@@ -12,10 +13,12 @@ const UserAvatar = (props: UserAvatarProps) => {
   return (
     <Link href="/profile">
       {user?.imageUrl ? (
-        <img
+        <Image
+          alt="User Avatar Image"
           src={user?.imageUrl}
-          alt="User Avatar"
-          className={`h-10 w-10 rounded-full cursor-pointer ${props.className}`}
+          width="35"
+          height="35"
+          className={`rounded-full cursor-pointer ${props.className}`}
         />
       ) : (
         <div className="text-gray-900 dark:text-gray-100 ml-3">
